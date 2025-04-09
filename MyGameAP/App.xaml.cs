@@ -1,4 +1,5 @@
 ﻿using Archipelago.Core;
+using Archipelago.Core.GameClients;
 using Archipelago.Core.MauiGUI;
 using Archipelago.Core.MauiGUI.Models;
 using Archipelago.Core.MauiGUI.ViewModels;
@@ -33,7 +34,7 @@ namespace MyGameAP
         private async void Context_ConnectClicked(object? sender, ConnectClickedEventArgs e)
         {
             Context.ConnectButtonEnabled = false;
-            Log.Logger.Information("Connecting...");
+            Log.Logger.Information("Connecting...");            
             if (Client != null)
             {
                 Client.Connected -= OnConnected;
@@ -51,16 +52,16 @@ namespace MyGameAP
             var connected = client.Connect();
             if (!connected)
             {
-                Log.Logger.Error("Dark Souls not running, open Dark Souls before connecting!");
+                Log.Logger.Error("My Game not running, open My Game before connecting!");
                 Context.ConnectButtonEnabled = true;
                 return;
             }
-
+            
             Client = new ArchipelagoClient(client);
 
             Client.Connected += OnConnected;
             Client.Disconnected += OnDisconnected;
-
+           
             await Client.Connect(e.Host, "My Game");
 
             Client.ItemReceived += Client_ItemReceived;
