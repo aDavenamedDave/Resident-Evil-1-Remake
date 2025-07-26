@@ -6,13 +6,13 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyGameAP
+namespace ResidentEvil1RemakeAP
 {
     public class Helpers
     {
         public static List<Archipelago.Core.Models.Location> GetLocations()
         {
-            var json = OpenEmbeddedResource("MyGameAP.Resources.Locations.json");
+            var json = OpenEmbeddedResource("ResidentEvil1RemakeAP.Resources.Locations.json");
             var list = JsonConvert.DeserializeObject<List<Archipelago.Core.Models.Location>>(json);
             return list;
         }
