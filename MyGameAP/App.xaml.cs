@@ -10,7 +10,7 @@ using Archipelago.MultiClient.Net.MessageLog.Messages;
 using Newtonsoft.Json;
 using Serilog;
 
-namespace MyGameAP
+namespace ResidentEvil1RemakeAP
 {
     public partial class App : Application
     {
@@ -48,11 +48,11 @@ namespace MyGameAP
                 }
                 Client.CancelMonitors();
             }
-            GenericGameClient client = new GenericGameClient("MyGame");
+            GenericGameClient client = new GenericGameClient("Resident Evil 1 Remake");
             var connected = client.Connect();
             if (!connected)
             {
-                Log.Logger.Error("My Game not running, open My Game before connecting!");
+                Log.Logger.Error("Resident Evil 1 Remake not running, open Resident Evil 1 Remake before connecting!");
                 Context.ConnectButtonEnabled = true;
                 return;
             }
@@ -62,7 +62,7 @@ namespace MyGameAP
             Client.Connected += OnConnected;
             Client.Disconnected += OnDisconnected;
            
-            await Client.Connect(e.Host, "My Game");
+            await Client.Connect(e.Host, "Resident Evil 1 Remake");
 
             Client.ItemReceived += Client_ItemReceived;
             Client.MessageReceived += Client_MessageReceived;
@@ -156,7 +156,7 @@ namespace MyGameAP
             var window = base.CreateWindow(activationState);
             if (DeviceInfo.Current.Platform == DevicePlatform.WinUI)
             {
-                window.Title = "MyGameAP - My Game Archipelago Randomizer";
+                window.Title = "ResidentEvil1RemakeAP - Resident Evil 1 Remake Archipelago Randomizer";
 
             }
             window.Width = 600;
