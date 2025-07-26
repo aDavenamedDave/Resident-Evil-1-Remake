@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace MyGameAP
+namespace ResidentEvil1RemakeAP
 {
     public static class MauiProgram
     {
